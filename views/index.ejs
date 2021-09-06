@@ -27,30 +27,53 @@
 	<div class="mt-5">
 		<form>
 			<div class="row align-items-start">
-				<div class="mb-3 col">
+				<div class="mb-3 col-md">
 					<label for="nameInput" class="form-label" id="nameLabel">FIRST NAME*</label>
 					<input type="text" class="form-control" id="nameInput" aria-describedby="nameLabel" required>
 				</div>
-				<div class="mb-3 col">
+				<div class="mb-3 col-md">
 					<label for="lastNameInput" class="form-label" id="lastNameLabel">LAST NAME*</label>
 					<input type="text" class="form-control" id="lastNameInput" aria-describedby="lastNameLabel" required>
 				</div>
 			</div>
 			<div class="row align-items-start">
-				<div class="mb-3 col">
+				<div class="mb-3 col-md">
 					<label for="exampleInputEmail1" class="form-label" id="emailLabel">EMAIL ADDRESS*</label>
 					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailLabel" required>
 				</div>
-				<div class="mb-3 col">
+				<div class="mb-3 col-md">
 					<label for="organizationInput" class="form-label" id="organizationLabel">ORGANIZATION</label>
 					<input type="text" class="form-control" id="organizationInput" aria-describedby="organizationLabel">
 				</div>
 			</div>
-			<div class="mb-3 form-check">
-				<input type="checkbox" class="form-check-input" id="check1">
-				<label class="form-check-label" for="check1">Check</label>
+			<div class="mb-4 row align-items-start">
+				<div class="col-4">
+					<label for="residentInput" class="form-label" id="residentLabel">EU RESIDENT*</label>
+					<select class="form-select " aria-label="Default select" id="residentInput"  aria-describedby="residentLabel" required>
+						<option selected>- SELECT ONE -</option>
+						<option value="1">Yes</option>
+						<option value="2">No</option>
+					</select>
+				</div>
 			</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
+			<div class="row align-items-start">
+				<div class="ms-2 form-check col-md">
+					<input type="checkbox" class="form-check-input" id="check1">
+					<label class="form-check-label" for="check1">ADVANCES</label>
+				</div>
+				<div class="ms-2 form-check col-md">
+					<input type="checkbox" class="form-check-input" id="check2">
+					<label class="form-check-label" for="check2">ALERTS</label>
+				</div>
+			</div>
+			<div class="row align-items-start">
+				<div class="ms-2 form-check col-md">
+					<input type="checkbox" class="form-check-input" id="check3">
+					<label class="form-check-label" for="check3">OTHER COMMUNICATIONS</label>
+				</div>
+			</div>
+			<button type="submit" class="mt-5 btn-lg rounded-pill btn-primary">Submit</button>
+			<button type="reset" class="mt-5 btn-lg rounded-pill btn-light">Reset</button>
 		</form>	
 	</div>
 </body>
