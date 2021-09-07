@@ -31,23 +31,23 @@
 					<label for="nameInput" class="form-label" id="nameLabel">FIRST NAME*</label>
 					<input type="text" class="shadow form-control" id="nameInput" aria-describedby="nameLabel" required>
 					<div class="invalid-feedback">
-						<b><i>First Name is Required</i></b>
+						<b><i>First Name is required</i></b>
 					</div>
 				</div>
 				<div class="mb-3 col-md">
 					<label for="lastNameInput" class="form-label" id="lastNameLabel">LAST NAME*</label>
 					<input type="text" class="shadow form-control" id="lastNameInput" aria-describedby="lastNameLabel" required>
 					<div class="invalid-feedback">
-						<b><i>Last Name is Required</i></b>
+						<b><i>Last Name is required</i></b>
 					</div>
 				</div>
 			</div>
 			<div class="mt-4 row align-items-start">
 				<div class="mb-3 col-md">
 					<label for="exampleInputEmail1" class="form-label" id="emailLabel">EMAIL ADDRESS*</label>
-					<input type="email" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailLabel" required>
+					<input type="email" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailLabel" required pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$">
 					<div class="invalid-feedback">
-						<b><i>Email Address is Required</i></b>
+						<b><i>Email Address is required</i></b>
 					</div>
 				</div>
 				<div class="mb-3 col-md">
@@ -64,11 +64,14 @@
 						<option value="2">No</option>
 					</select>
 					<div class="invalid-feedback">
-						<b><i>EU Resident is Required</i></b>
+						<b><i>EU Resident is required</i></b>
 					</div>
 				</div>
 			</div>
 			<div class="row align-items-start">
+				<div class="invalid-feedback checkboxes">
+					<b><i>At least one option is required</i></b>
+				</div>
 				<div class="mt-3 ms-2 form-check col-md">
 					<input type="checkbox" class="shadow form-check-input" id="check1">
 					<label class="form-check-label" for="check1">ADVANCES</label>
@@ -84,6 +87,7 @@
 					<label class="form-check-label" for="check3">OTHER COMMUNICATIONS</label>
 				</div>
 			</div>
+
 			<button type="submit" class="shadow mt-5 btn-lg rounded-pill btn-primary">Submit</button>
 			<button type="reset" class="shadow ms-3 mt-5 btn-lg rounded-pill btn-light">Reset</button>
 		</form>	
@@ -91,19 +95,52 @@
 	<script type="text/javascript">
 		(function () {
 			'use strict'
-			var forms = document.querySelectorAll('.needs-validation')
+			var forms = document.querySelectorAll('.needs-validation');
+			
 			Array.prototype.slice.call(forms)
 			.forEach(function (form) {
 			  form.addEventListener('submit', function (event) {
+			  	var checkboxes = document.querySelectorAll('.form-check-input');
+				document.querySelector('.checkboxes').classList.add('invalidCheckbox');
+				checkboxes.forEach(function (checkbox) {
+					checkbox.addEventListener('change', function(event){
+						valedateAllCheckboxes(false);
+					});
+				});
+				valedateAllCheckboxes(false, event);
 			    if (!form.checkValidity()) {
-			      event.preventDefault()
-			      event.stopPropagation()
+			      event.preventDefault();
+			      event.stopPropagation();
 			    }
-
-			    form.classList.add('was-validated')
+			    
+			    form.classList.add('was-validated');
 			  }, false)
 			})
-		})()
+		})();
+		function valedateAllCheckboxes (isOneChecked, event){
+			var checkboxes = document.querySelectorAll('.form-check-input');
+			document.querySelector('.checkboxes').classList.add('invalidCheckbox');
+
+			checkboxes.forEach(function (checkbox) {
+				checkbox.classList.add('checkboxInputInvalid');
+				if(checkbox.checked){
+					isOneChecked = true;
+					document.querySelector('.checkboxes').classList.remove('invalidCheckbox');
+				}
+			});
+			
+		    if(isOneChecked){
+		    	checkboxes.forEach(function (checkbox) {
+					checkbox.classList.remove('checkboxInputInvalid');
+				});
+		    }
+
+		    if(!isOneChecked && event)
+		    {
+		    	event.preventDefault();
+				event.stopPropagation();
+		    }
+		};
 	</script>
 </body>
 

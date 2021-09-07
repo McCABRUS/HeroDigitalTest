@@ -64,15 +64,23 @@ body{
     background-image: unset;
 }
 
-.form-control.is-invalid, .was-validated .form-control:invalid, .form-select.is-invalid:not([multiple]):not([size]), .form-select.is-invalid:not([multiple])[size="1"], .was-validated .form-select:invalid:not([multiple]):not([size]), .was-validated .form-select:invalid:not([multiple])[size="1"]{
+.form-control.is-invalid, .was-validated .form-control:invalid, .form-select.is-invalid:not([multiple]):not([size]), .form-select.is-invalid:not([multiple])[size="1"], .was-validated .form-select:invalid:not([multiple]):not([size]), .was-validated .form-select:invalid:not([multiple])[size="1"], .checkboxInputInvalid{
 	background-color: #f8e7e7;
 }
 
-.invalid-feedback {
+.invalid-feedback:not(.checkboxes) {
 	position: relative;
     top: -100px;
 }
+
+.invalidCheckbox{
+	display: block;
+}
+
 .form-control.is-valid, .was-validated .form-control:valid, .form-check-input.is-valid, .was-validated .form-check-input:valid, .form-check-input.is-valid, .was-validated .form-check-input:valid
 {
 	border-color:transparent;
+}
+.form-check-input.is-valid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label {
+    color: initial;
 }
