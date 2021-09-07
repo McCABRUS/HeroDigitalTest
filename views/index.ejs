@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, inicial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<!-- BOOSTRAP -->
+	<!-- BOOTSTRAP -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
 	<!--Google Fonts-->
@@ -21,60 +21,90 @@
 	<title>Hero Digital Test</title>
 </head>
 <body>
-	<h2><b>Sing up for email updates</b></h2>
+	<h2><b>Sign up for email updates</b></h2>
 	<br>
 	<span>*Indicates Required Field</span>
 	<div class="mt-5">
-		<form>
+		<form class="needs-validation" novalidate>
 			<div class="row align-items-start">
 				<div class="mb-3 col-md">
 					<label for="nameInput" class="form-label" id="nameLabel">FIRST NAME*</label>
-					<input type="text" class="form-control" id="nameInput" aria-describedby="nameLabel" required>
+					<input type="text" class="shadow form-control" id="nameInput" aria-describedby="nameLabel" required>
+					<div class="invalid-feedback">
+						<b><i>First Name is Required</i></b>
+					</div>
 				</div>
 				<div class="mb-3 col-md">
 					<label for="lastNameInput" class="form-label" id="lastNameLabel">LAST NAME*</label>
-					<input type="text" class="form-control" id="lastNameInput" aria-describedby="lastNameLabel" required>
+					<input type="text" class="shadow form-control" id="lastNameInput" aria-describedby="lastNameLabel" required>
+					<div class="invalid-feedback">
+						<b><i>Last Name is Required</i></b>
+					</div>
 				</div>
 			</div>
-			<div class="row align-items-start">
+			<div class="mt-4 row align-items-start">
 				<div class="mb-3 col-md">
 					<label for="exampleInputEmail1" class="form-label" id="emailLabel">EMAIL ADDRESS*</label>
-					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailLabel" required>
+					<input type="email" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailLabel" required>
+					<div class="invalid-feedback">
+						<b><i>Email Address is Required</i></b>
+					</div>
 				</div>
 				<div class="mb-3 col-md">
 					<label for="organizationInput" class="form-label" id="organizationLabel">ORGANIZATION</label>
-					<input type="text" class="form-control" id="organizationInput" aria-describedby="organizationLabel">
+					<input type="text" class="shadow form-control" id="organizationInput" aria-describedby="organizationLabel">
 				</div>
 			</div>
-			<div class="mb-4 row align-items-start">
+			<div class="mt-4 mb-4 row align-items-start">
 				<div class="col-4">
 					<label for="residentInput" class="form-label" id="residentLabel">EU RESIDENT*</label>
-					<select class="form-select " aria-label="Default select" id="residentInput"  aria-describedby="residentLabel" required>
-						<option selected>- SELECT ONE -</option>
+					<select class="shadow form-select selectpicker" aria-label="Default select" id="residentInput"  aria-describedby="residentLabel" required>
+						<option value="" disabled selected hidden>- SELECT ONE -</option>
 						<option value="1">Yes</option>
 						<option value="2">No</option>
 					</select>
+					<div class="invalid-feedback">
+						<b><i>EU Resident is Required</i></b>
+					</div>
 				</div>
 			</div>
 			<div class="row align-items-start">
-				<div class="ms-2 form-check col-md">
-					<input type="checkbox" class="form-check-input" id="check1">
+				<div class="mt-3 ms-2 form-check col-md">
+					<input type="checkbox" class="shadow form-check-input" id="check1">
 					<label class="form-check-label" for="check1">ADVANCES</label>
 				</div>
-				<div class="ms-2 form-check col-md">
-					<input type="checkbox" class="form-check-input" id="check2">
+				<div class="mt-3 ms-2 form-check col-md">
+					<input type="checkbox" class="shadow form-check-input" id="check2">
 					<label class="form-check-label" for="check2">ALERTS</label>
 				</div>
 			</div>
 			<div class="row align-items-start">
-				<div class="ms-2 form-check col-md">
-					<input type="checkbox" class="form-check-input" id="check3">
+				<div class="mt-3 ms-2 form-check col-md">
+					<input type="checkbox" class="shadow form-check-input" id="check3">
 					<label class="form-check-label" for="check3">OTHER COMMUNICATIONS</label>
 				</div>
 			</div>
-			<button type="submit" class="mt-5 btn-lg rounded-pill btn-primary">Submit</button>
-			<button type="reset" class="mt-5 btn-lg rounded-pill btn-light">Reset</button>
+			<button type="submit" class="shadow mt-5 btn-lg rounded-pill btn-primary">Submit</button>
+			<button type="reset" class="shadow ms-3 mt-5 btn-lg rounded-pill btn-light">Reset</button>
 		</form>	
 	</div>
+	<script type="text/javascript">
+		(function () {
+			'use strict'
+			var forms = document.querySelectorAll('.needs-validation')
+			Array.prototype.slice.call(forms)
+			.forEach(function (form) {
+			  form.addEventListener('submit', function (event) {
+			    if (!form.checkValidity()) {
+			      event.preventDefault()
+			      event.stopPropagation()
+			    }
+
+			    form.classList.add('was-validated')
+			  }, false)
+			})
+		})()
+	</script>
 </body>
+
 <html>
