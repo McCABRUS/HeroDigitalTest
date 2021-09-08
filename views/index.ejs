@@ -25,18 +25,18 @@
 	<br>
 	<span>*Indicates Required Field</span>
 	<div class="mt-5">
-		<form class="needs-validation" novalidate>
+		<form class="needs-validation" method="POST" novalidate>
 			<div class="row align-items-start">
 				<div class="mb-3 col-md">
 					<label for="nameInput" class="form-label" id="nameLabel">FIRST NAME*</label>
-					<input type="text" class="shadow form-control" id="nameInput" aria-describedby="nameLabel" required>
+					<input name="firstName" type="text" class="shadow form-control" id="nameInput" aria-describedby="nameLabel" required>
 					<div class="invalid-feedback">
 						<b><i>First Name is required</i></b>
 					</div>
 				</div>
 				<div class="mb-3 col-md">
 					<label for="lastNameInput" class="form-label" id="lastNameLabel">LAST NAME*</label>
-					<input type="text" class="shadow form-control" id="lastNameInput" aria-describedby="lastNameLabel" required>
+					<input name="lastName" type="text" class="shadow form-control" id="lastNameInput" aria-describedby="lastNameLabel" required>
 					<div class="invalid-feedback">
 						<b><i>Last Name is required</i></b>
 					</div>
@@ -45,23 +45,23 @@
 			<div class="mt-4 row align-items-start">
 				<div class="mb-3 col-md">
 					<label for="exampleInputEmail1" class="form-label" id="emailLabel">EMAIL ADDRESS*</label>
-					<input type="email" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailLabel" required pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$">
+					<input name="email" type="email" class="shadow form-control" id="exampleInputEmail1" aria-describedby="emailLabel" required pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$">
 					<div class="invalid-feedback">
 						<b><i>Email Address is required</i></b>
 					</div>
 				</div>
 				<div class="mb-3 col-md">
 					<label for="organizationInput" class="form-label" id="organizationLabel">ORGANIZATION</label>
-					<input type="text" class="shadow form-control" id="organizationInput" aria-describedby="organizationLabel">
+					<input name="org" type="text" class="shadow form-control" id="organizationInput" aria-describedby="organizationLabel">
 				</div>
 			</div>
 			<div class="mt-4 mb-4 row align-items-start">
 				<div class="col-4">
 					<label for="residentInput" class="form-label" id="residentLabel">EU RESIDENT*</label>
-					<select class="shadow form-select selectpicker" aria-label="Default select" id="residentInput"  aria-describedby="residentLabel" required>
+					<select name="euResident" class="shadow form-select selectpicker" aria-label="Default select" id="residentInput"  aria-describedby="residentLabel" required>
 						<option value="" disabled selected hidden>- SELECT ONE -</option>
-						<option value="1">Yes</option>
-						<option value="2">No</option>
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
 					</select>
 					<div class="invalid-feedback">
 						<b><i>EU Resident is required</i></b>
@@ -73,17 +73,17 @@
 					<b><i>At least one option is required</i></b>
 				</div>
 				<div class="mt-3 ms-2 form-check col-md">
-					<input type="checkbox" class="shadow form-check-input" id="check1">
+					<input name="fieldName" value="advances" type="checkbox" class="shadow form-check-input" id="check1">
 					<label class="form-check-label" for="check1">ADVANCES</label>
 				</div>
 				<div class="mt-3 ms-2 form-check col-md">
-					<input type="checkbox" class="shadow form-check-input" id="check2">
+					<input name="fieldName" value="alerts" type="checkbox" class="shadow form-check-input" id="check2">
 					<label class="form-check-label" for="check2">ALERTS</label>
 				</div>
 			</div>
 			<div class="row align-items-start">
 				<div class="mt-3 ms-2 form-check col-md">
-					<input type="checkbox" class="shadow form-check-input" id="check3">
+					<input name="fieldName" value="other" type="checkbox" class="shadow form-check-input" id="check3">
 					<label class="form-check-label" for="check3">OTHER COMMUNICATIONS</label>
 				</div>
 			</div>
